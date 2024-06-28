@@ -1,5 +1,5 @@
 ConsoleCollection
-Aplicaciones Moviles
+Aplicacion Movil
 
 ##Tema: Colección de consolas
 Es una aplicación que permite al usuario crear, ver, editar y eliminar consolas de videojuegos que tenga en su colección. También puede editar sus datos y eliminar su cuenta.
