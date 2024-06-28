@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/pastel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SettingsActivity">
+
+    <ImageView
+        android:id="@+id/app_banner"
+        android:layout_width="131dp"
+        android:layout_height="115dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/edit_user" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="20dp"
+        app:cardCornerRadius="15dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/title_edit_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif-black"
+                android:padding="10dp"
+                android:textColor="@color/ashen"
+                android:text="@string/edit_user_data"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:gravity="center_horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edit_name_user"
+                android:layout_width="280dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/nombre"
+                android:inputType="text"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_edit_user" />
+
+            <EditText
+                android:id="@+id/edit_mail_user"
+                android:layout_width="280dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/email"
+                android:inputType="text"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_name_user" />
+
+            <EditText
+                android:id="@+id/edit_password_user"
+                android:layout_width="280dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/contrase_a"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_mail_user" />
+
+            <Button
+                android:id="@+id/button_cancel_edit_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/pearl"
+                android:text="@string/cancel_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.303"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_password_user"
+                app:layout_constraintVertical_bias="0.42" />
+
+            <Button
+                android:id="@+id/button_edit_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/moss"
+                android:text="@string/send_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.696"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_password_user"
+                app:layout_constraintVertical_bias="0.42" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button_delete_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/bordeaux"
+        android:text="@string/delete_user_button"
+        android:layout_gravity="center_horizontal"
+        app:icon="@android:drawable/ic_delete" />
+
+</LinearLayout>
