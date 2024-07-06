@@ -10,6 +10,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     ValueEventListener eventListener;
     MyAdapter adapter;
     String usernameDB, nameDB, emailDB, passwordDB;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.recyclerView);
+        searchView = findViewById(R.id.searchView);
+        searchView.clearFocus();
+
         GridLayoutManager gridLayoutManager = new GridLayoutManager(MainActivity.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
 
@@ -129,6 +134,20 @@ public class MainActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchItemList(newText);
+                return true;
+            }
+        });
+
     }
 
     private void fetchUserDetails(String usernameDB) {
@@ -151,6 +170,18 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+    }
+
+    public void searchItemList(String searchText) {
+        ArrayList<ItemClass> searchItemList = new ArrayList<>();
+        for (ItemClass item : itemList) {
+            if (item.getNickname().toLowerCase().contains(searchText.toLowerCase()) ||
+                    item.getName().toLowerCase().contains(searchText.toLowerCase()) ||
+                    item.getBrand().toLowerCase().contains(searchText.toLowerCase())) {
+                searchItemList.add(item);
+            }
+        }
+        adapter.searchItemList(searchItemList);
     }
 
 }

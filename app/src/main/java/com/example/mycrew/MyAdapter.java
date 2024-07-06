@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
@@ -60,6 +61,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @Override
     public int getItemCount() {
         return itemList.size();
+    }
+
+    public void searchItemList(ArrayList<ItemClass> searchList) {
+        itemList = searchList;
+        notifyDataSetChanged();
     }
 }
 
